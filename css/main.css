@@ -5,6 +5,19 @@ body {
   padding: 0;
 }
 
+.contenidor-principal {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.contenidor-principal > section,
+.contenidor-imatge {
+  background-color: #dff3e6;
+  border-radius: 14px;
+  padding: 20px;
+}
+
 h1 {
   font-size: 40px;
   color: #2a8063;
@@ -30,14 +43,14 @@ h1::after {
 h2 {
   font-size: 20px;
   color: #107250;
-  text-align: center;
+  text-align: left;
   font-family: 'impact', sans-serif;
 }
 
 p {
   font-size: 14px;
   color: #4b806d;
-  text-align: center;
+  text-align: left;
   font-family: 'arial', sans-serif;
 }
 
@@ -46,8 +59,7 @@ ol {
   color: #4b806d;
   text-align: left;
   font-family: 'arial', sans-serif;
-  width: fit-content;
-  margin: 0 auto;
+  margin: 0;
 }
 
 ul {
@@ -55,14 +67,13 @@ ul {
   color: #4b806d;
   text-align: left;
   font-family: 'arial', sans-serif;
-  width: fit-content;
-  margin: 0 auto;
+  margin: 0;
 }
 
 li {
   font-size: 16px;
   color: #4b806d;
-  text-align: center;
+  text-align: left;
   font-family: 'arial', sans-serif;
 }
 
@@ -71,6 +82,7 @@ img {
   margin: 0 auto;
   max-width: 100%;
   height: auto;
+  box-sizing: border-box;
   align-items: center;
   border: #107250 solid 5px;
   border-radius: 10px;
