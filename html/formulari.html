@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Formulari de Contacte - Akram B.</title>
+        <link rel="stylesheet" href="../css/main.css">
+    </head>
+    <body>
+        <h1>Formulari de contacte</h1>
+        <main class="contenidor-principal">
+            <section style="grid-column: span 2;">
+                <p><a href="index.html">&larr; Tornar a la pàgina principal</a></p>
+                <hr style="margin: 20px 0; border: 1px solid #107250;">
+
+                <form id="formulari" onsubmit="cridaSubmit(event)">
+                    <p>
+                        <label for="nom">Nom:</label><br>
+                        <input type="text" id="nom" name="nom" required style="width: 100%; padding: 8px; box-sizing: border-box;">
+                    </p>
+
+                    <p>
+                        <label for="cognoms">Cognoms:</label><br>
+                        <input type="text" id="cognoms" name="cognoms" required style="width: 100%; padding: 8px; box-sizing: border-box;">
+                    </p>
+
+                    <p>
+                        <label for="dataNaixement">Data de naixement:</label><br>
+                        <input type="date" id="dataNaixement" name="dataNaixement" required style="width: 100%; padding: 8px; box-sizing: border-box;">
+                    </p>
+
+                    <p>
+                        <label for="correu">Correu electrònic:</label><br>
+                        <input type="email" id="correu" name="correu" placeholder="nom@exemple.com" required style="width: 100%; padding: 8px; box-sizing: border-box;">
+                    </p>
+
+                    <p>
+                        <label>Gènere:</label><br>
+                        <input type="radio" id="home" name="genere" value="Home" required> <label for="home">Home</label>
+                        <input type="radio" id="dona" name="genere" value="Dona"> <label for="dona">Dona</label>
+                        <input type="radio" id="noDefinit" name="genere" value="No definit"> <label for="noDefinit">No definit</label>
+                    </p>
+
+                    <p>
+                        <label for="tipusInfo">Tipus d'informació:</label><br>
+                        <select id="tipusInfo" name="tipusInfo" required style="width: 100%; padding: 8px; box-sizing: border-box;">
+                            <option value="">Com has arribat aquí?</option>
+                            <option value="link">he clicat un link</option>
+                            <option value="ensenyat">M'ho han ensenyat</option>
+                            <option value="no se">Si et sóc sincer, no ho se</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="comentaris">Ja que estàs aqui, digues que puc millorar:</label><br>
+                        <textarea id="comentaris" name="comentaris" placeholder="Escriu aquí..." required style="width: 100%; padding: 8px; box-sizing: border-box;"></textarea>
+                    </p>
+
+                    <button type="submit" style="background-color: #107250; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                        Guardar
+                    </button>
+                </form>
+            </section>
+        </main>
+
+        <script>
+            async function cridaSubmit(event) {
+                event.preventDefault();
+
+                const form = document.getElementById("formulari");
+                const nom = form.elements["nom"].value;
+                const correu = form.elements["correu"].value;
+
+                const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (!regexEmail.test(correu)) {
+                    alert("Error: El format del correu electrònic no és vàlid (nom@exemple.com) :[");
+                    return;
+                }
+
+                alert("Hola " + nom + "!, el formulari s'ha validat i guardat correctament! yay!");
+            }
+        </script>
+    </body>
+</html>
